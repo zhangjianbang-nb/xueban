@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xueban"
+version = "0.1.0"
+description = "多模态学生智能体：陪伴 / 解题 / 通识三模式，零依赖离线引擎 + 可选视觉 LLM"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "jianbangzhang" }]
+keywords = ["education", "agent", "multimodal", "tutor", "chatbot"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+server = ["fastapi>=0.110", "uvicorn>=0.29"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+xueban = "xueban.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["xueban*"]
